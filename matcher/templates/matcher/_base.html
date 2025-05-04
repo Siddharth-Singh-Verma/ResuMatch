@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Resume Matcher{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --nav-bg: #fff;
+            --footer-bg: #f8fafc;
+            --card-bg: #fff;
+            --border-radius: 1.5rem;
+            --shadow: 0 4px 24px 0 rgba(37,99,235,0.08);
+        }
+        html, body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px 0 rgba(15,23,42,0.05);
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 70px;
+        }
+        nav .brand {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: #222;
+            margin-left: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            transition: color 0.2s, background 0.2s;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+        }
+        nav a:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: 1.5rem;
+        }
+        .nav-toggle span {
+            height: 3px;
+            width: 25px;
+            background: #222;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        main {
+            min-height: 80vh;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            background: var(--bg);
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+        h1, h2, h3 {
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+        button, .btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 1px 4px 0 rgba(37,99,235,0.08);
+            margin-top: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        button:hover, .btn:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            background: #f1f5f9;
+            transition: border 0.2s;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        label {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        .center {
+            text-align: center;
+        }
+        footer {
+            background: var(--footer-bg);
+            color: #64748b;
+            text-align: center;
+            padding: 2rem 0 1.2rem 0;
+            margin-top: 3rem;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 1100px) {
+            nav .container {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+        }
+        @media (max-width: 900px) {
+            nav .container {
+                padding: 0 0.7rem;
+            }
+        }
+        @media (max-width: 800px) {
+            .hero, .card, .feature-card {
+                flex-direction: column !important;
+                align-items: stretch !important;
+            }
+            .hero > div, .feature-card {
+                min-width: 0 !important;
+                max-width: 100% !important;
+            }
+        }
+        @media (max-width: 600px) {
+            nav .container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 0.7rem;
+                height: auto;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                margin-top: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            nav a {
+                margin: 0.7rem 0 0 0;
+                font-size: 1.1rem;
+            }
+            .card {
+                padding: 1rem 0.7rem;
+            }
+            main {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="brand">ResuMatch</div>
+            <div class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="{% url 'genai' %}" class="btn" style="margin-left:2rem;background:var(--primary);color:#fff;">Get Started</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>© 2025 ResuMatch | All Rights Reserved</p>
+    </footer>
+    <script>
+        // Responsive nav toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            var navToggle = document.querySelector('.nav-toggle');
+            var navLinks = document.querySelector('.nav-links');
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

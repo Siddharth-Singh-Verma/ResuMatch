@@ -1,0 +1,73 @@
+{% extends 'matcher/_base.html' %}
+{% block title %}Optimize Your Resume for Job Success{% endblock %}
+{% block content %}
+<div class="hero" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;max-width:1100px;margin:2.5rem auto 3rem auto;padding:2.5rem 2rem 2.5rem 2rem;background:linear-gradient(90deg,#f8fafc 60%,#fff 100%);border-radius:1.5rem;box-shadow:0 4px 24px 0 rgba(37,99,235,0.08);">
+  <div style="flex:1;min-width:300px;">
+    <h1 style="font-size:2.7rem;font-weight:800;line-height:1.1;margin-bottom:1.2rem;">Optimize Your Resume for <span style="color:#2563eb;">Job Success</span></h1>
+    <p style="font-size:1.18rem;color:#374151;margin-bottom:2.2rem;">Match your resume with job descriptions, get instant feedback, and improve your chances of landing interviews.</p>
+    <div style="display:flex;gap:1rem;">
+      <a href="{% url 'genai' %}" class="btn" style="background:#2563eb;color:#fff;font-weight:600;">Analyze Your Resume &rarr;</a>
+      <a href="#features" class="btn" style="background:#fff;color:#2563eb;border:1.5px solid #2563eb;font-weight:600;">Learn More</a>
+    </div>
+  </div>
+  <div style="flex:1;min-width:260px;display:flex;justify-content:center;">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" alt="Resume Analysis" style="width:100%;max-width:370px;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.10);"/>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div id="features" style="max-width:1100px;margin:0 auto 3rem auto;padding:0 2rem;">
+  <h2 style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:0.5rem;">Powerful Features</h2>
+  <p style="text-align:center;color:#64748b;font-size:1.1rem;margin-bottom:2.5rem;">Our resume analysis tool includes everything you need to create a resume that stands out and matches job requirements.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#x2714;&#xFE0F;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Keyword Matching</h3>
+      <p style="color:#64748b;font-size:1rem;">Identify critical keywords from the job description that match or are missing from your resume.</p>
+    </div>
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#9889;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Smart Suggestions</h3>
+      <p style="color:#64748b;font-size:1rem;">Get tailored recommendations on how to improve your resume for the specific job position.</p>
+    </div>
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#128200;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Match Score Analysis</h3>
+      <p style="color:#64748b;font-size:1rem;">Receive a comprehensive score showing how well your qualifications match the job requirements.</p>
+    </div>
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#9997;&#65039;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Grammar Check</h3>
+      <p style="color:#64748b;font-size:1rem;">Eliminate spelling errors and grammar mistakes that could cost you an interview opportunity.</p>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works Section -->
+<div style="max-width:1100px;margin:0 auto 3rem auto;padding:0 2rem;">
+  <h2 style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:0.5rem;">How It Works</h2>
+  <p style="text-align:center;color:#64748b;font-size:1.1rem;margin-bottom:2.5rem;">Our advanced algorithm compares your resume with job descriptions to give you actionable insights and improve your chances of getting hired.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;">
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#128228;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Upload Your Resume</h3>
+      <p style="color:#64748b;font-size:1rem;">Upload your resume file or paste the text directly into our system.</p>
+    </div>
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#128196;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Add Job Description</h3>
+      <p style="color:#64748b;font-size:1rem;">Paste the job description you're interested in applying for.</p>
+    </div>
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#128269;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Analyze Match</h3>
+      <p style="color:#64748b;font-size:1rem;">Our AI algorithm compares your resume against the job requirements.</p>
+    </div>
+    <div class="feature-card" style="flex:1 1 220px;max-width:250px;background:#fff;border-radius:1rem;box-shadow:0 2px 16px 0 rgba(37,99,235,0.08);padding:2rem 1.2rem;text-align:center;">
+      <div style="font-size:2.2rem;color:#2563eb;margin-bottom:0.7rem;">&#128202;</div>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Get Detailed Results</h3>
+      <p style="color:#64748b;font-size:1rem;">Receive a comprehensive analysis with match score and improvement suggestions.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

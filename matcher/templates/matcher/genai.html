@@ -1,0 +1,72 @@
+{% extends 'matcher/_base.html' %}
+
+{% block title %}Resume-Job Match Analyzer{% endblock %}
+
+{% block content %}
+<div style="max-width:900px;margin:3rem auto 2rem auto;padding:2.5rem 2rem;background:#fff;border-radius:1.5rem;box-shadow:0 4px 24px 0 rgba(37,99,235,0.08);">
+  <h1 style="font-size:2rem;font-weight:800;margin-bottom:0.5rem;color:#2563eb;">Resume-Job Match Analyzer</h1>
+  <p style="color:#64748b;font-size:1.1rem;margin-bottom:2.2rem;">Upload your resume and job description to get a detailed match analysis.</p>
+  <form method="POST" enctype="multipart/form-data" style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;">
+    {% csrf_token %}
+    <div style="flex:1 1 350px;min-width:300px;background:#f8fafc;border-radius:1rem;padding:1.5rem;box-shadow:0 2px 8px 0 rgba(37,99,235,0.04);">
+      <label for="{{ form.resume_pdf.id_for_label }}" style="font-weight:600;color:#2563eb;">Upload Your Resume</label>
+      {{ form.resume_pdf }}
+      <div style="margin:1rem 0 0.5rem 0;text-align:center;color:#64748b;font-size:0.95rem;">or paste your resume here:</div>
+      {{ form.resume_text }}
+    </div>
+    <div style="flex:1 1 350px;min-width:300px;background:#f8fafc;border-radius:1rem;padding:1.5rem;box-shadow:0 2px 8px 0 rgba(37,99,235,0.04);">
+      <label for="{{ form.job_description.id_for_label }}" style="font-weight:600;color:#2563eb;">Job Description</label>
+      {{ form.job_description }}
+    </div>
+    <div style="width:100%;display:flex;justify-content:center;margin-top:2rem;">
+      <button type="submit" class="btn" style="background:#2563eb;color:#fff;font-weight:600;font-size:1.1rem;padding:0.8rem 2.2rem;">Analyze Match</button>
+    </div>
+  </form>
+</div>
+{% if parsed_result %}
+<div style="max-width:900px;margin:2rem auto 3rem auto;padding:2.5rem 2rem;background:#f8fafc;border-radius:1.5rem;box-shadow:0 4px 24px 0 rgba(37,99,235,0.08);">
+  <div style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:center;">
+    <div style="flex:1 1 220px;min-width:220px;display:flex;flex-direction:column;align-items:center;position:relative;">
+      <div style="position:relative;width:120px;height:120px;">
+        <svg width="120" height="120">
+          <circle cx="60" cy="60" r="54" stroke="#e5e7eb" stroke-width="12" fill="none" />
+          <circle cx="60" cy="60" r="54" stroke="#2563eb" stroke-width="12" fill="none" stroke-linecap="round"
+            stroke-dasharray="339.292" stroke-dashoffset="{{ match_circle_offset }}"
+            style="transition: stroke-dashoffset 0.6s;" />
+        </svg>
+        <div style="position:absolute;top:0;left:0;width:120px;height:120px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:2.2rem;font-weight:700;color:#2563eb;">{{ parsed_result.match_percentage }}%</span>
+        </div>
+      </div>
+      <div style="margin-top:1rem;font-size:1.1rem;color:#64748b;">Match Score</div>
+    </div>
+    <div style="flex:2 1 350px;min-width:300px;">
+      <h4 style="color:#2563eb;font-size:1.2rem;font-weight:700;margin-bottom:0.7rem;">Tips for Improvement</h4>
+      <ul style="color:#374151;font-size:1.05rem;margin-bottom:1.5rem;">
+        {% for tip in parsed_result.tips %}
+          <li style="margin-bottom:0.5rem;">&#x1F4A1; {{ tip|slice:"2:" }}</li>
+        {% endfor %}
+      </ul>
+      <h4 style="color:#e11d48;font-size:1.2rem;font-weight:700;margin-bottom:0.7rem;">Grammatical Mistakes</h4>
+      <ul style="color:#e11d48;font-size:1.05rem;">
+        {% for mistake in parsed_result.mistakes %}
+          <li style="margin-bottom:0.5rem;">&#x274C; {{ mistake|slice:"2:" }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% elif result %}
+<div style="max-width:900px;margin:2rem auto 3rem auto;padding:2.5rem 2rem;background:#f8fafc;border-radius:1.5rem;box-shadow:0 4px 24px 0 rgba(37,99,235,0.08);text-align:center;">
+  <p>{{ result }}</p>
+</div>
+{% endif %}
+{% endblock %}
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 Resume Matcher | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
