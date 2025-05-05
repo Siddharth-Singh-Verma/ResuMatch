@@ -52,7 +52,8 @@ Website screenshots are available in the [`images/`](images/) folder:
 
 ![Home Page](images/home.png)
 ![Features](images/features.png)
-![Analysis Results](images/results.png)
+![Analysis Results](images/result1.png)
+![Analysis Results](images/result2.png)
 - Example match analysis and suggestions
 
 ## Getting Started
