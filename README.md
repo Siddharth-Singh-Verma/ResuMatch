@@ -1,6 +1,6 @@
 # ResuMatch
 
-**ResuMatch** is an AI-powered resume-job matching platform that leverages rule-based, machine learning, and generative AI (GenAI) approaches to help job seekers optimize their resumes for specific job descriptions. Built with Django full stack development, ResuMatch provides actionable insights, smart suggestions, and a comprehensive match analysis to boost your chances of landing interviews.
+**ResuMatch** is an AI-powered resume-job matching platform that leverages generative AI (GenAI) to help job seekers optimize their resumes for specific job descriptions. Built with Django full stack development, ResuMatch provides actionable insights, smart suggestions, and a comprehensive match analysis to boost your chances of landing interviews.
 
 [Live Demo](https://resumatch-0iad.onrender.com) | [GitHub Repository](https://github.com/Siddharth-Singh-Verma/ResuMatch)
 
