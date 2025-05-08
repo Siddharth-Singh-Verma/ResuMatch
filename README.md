@@ -13,9 +13,7 @@
 - [Approach](#approach)
 - [Screenshots](#screenshots)
 - [Getting Started](#getting-started)
-- [Tech Stack](#tech-stack)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ---
 
